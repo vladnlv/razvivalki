@@ -1,0 +1,38 @@
+.wrap {
+    position: relative;
+    margin: 50px;
+    margin-right: 150px;
+    margin-left: 150px;
+    // border-style: solid;
+    // border-width: 2px;
+    // border-radius: 25px;
+    // border-color: #e7f6ff;
+}
+
+.arrow {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -25px;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    transition: all 100ms ease-in-out;
+}
+
+.leftArrow {
+    transform: rotate(180deg);
+    left: 5px;
+    top: 50%;
+  
+}
+
+.img {
+    height: 400px;
+	transition: all 200ms ease-in-out;
+}

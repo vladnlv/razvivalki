@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.1s ease-out, visibility 0.1s ease-out;
+  overflow: hidden;
+}
+
+.overlayVisible {
+  visibility: visible;
+  opacity: 1;
+
+  .login {
+    transform: translateY(-0%);
+  }
+}
+.login {
+  display: flex;
+  border-radius: 15px;
+  flex-direction: column;
+  position: relative;
+  width: 420px;
+  height: 350px;
+  left: 35%;
+  top: 25%;
+  background: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 10px 30px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.inputblock {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0px 7px;
+  position: relative;
+  margin-bottom: 15px;
+
+  input {
+    border: 0;
+    padding: 13px 7px;
+    font-size: 16px;
+    width: 100%;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+.enterButton {
+  width: 100%;
+  height: 55px;
+  background: #e7f6ff;
+  border-radius: 18px;
+  border: 0;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+
+  &:disabled {
+    background-color: #bebebe !important;
+    cursor: default;
+  }
+
+  &:hover {
+    background: lighten(#bad6e8, 5%);
+  }
+
+  &:active {
+    background: darken(#bad6e8, 5%);
+  }
+}
+.ref {
+  text-align: center;
+  margin-top: 15px;
+  color: rgb(121, 121, 212);
+  text-decoration: underline;
+  cursor: pointer;
+}

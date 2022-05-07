@@ -1,0 +1,82 @@
+.arrowdel {
+    margin-top: 15px;
+    width: 17px;
+    height: 17px;
+    transform: rotate(90deg);
+    position:relative;
+    margin-right: 20px;
+    transition: all 1000ms ease;
+}
+
+summary::marker {
+  color: white;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+details[open] {
+  .arrowdel {
+    transform: rotate(270deg);
+    transition: all 700ms ease;
+  }
+} 
+
+.term {
+  //background-color: #e7f6ff;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba($color: black, $alpha: 0.1) ;
+  //border-style: solid;
+  //border-width: 1px;
+  //border-color: rgba($color: black, $alpha: 0.1);
+  //border-radius: 10px;
+}
+
+.detailwrap {
+  h3 {
+    font-size: 20px;
+  }
+    .arrowdel {
+      margin-top: 15px;
+      width: 17px;
+      height: 17px;
+      transform: rotate(90deg);
+      position:relative;
+      margin-right: 20px;
+      transition: all 1000ms ease;
+  }
+
+  details:not([open]) p, b {
+    opacity: 0;
+  }
+
+    details:not([open]) .arrowdel {
+    transform: rotate(90deg);
+  }
+
+  details[open] {
+    .arrowdel {
+      transform: rotate(270deg);
+      transition: all 700ms ease;
+    }
+    p, b{
+      opacity: 1;
+      transition: all 700ms ease;
+    }
+  } 
+}
+
+.del {
+    list-style-type: circle;
+  a {
+  text-decoration: none;
+  color: rgb(79, 79, 235);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  p {
+    border-bottom: transparent;
+  }
+}

@@ -1,0 +1,22 @@
+ul {
+  p {
+    transition: 400ms;
+    border-bottom: 2px solid transparent;
+  }
+  p:hover {
+    border-color: black;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+hr {
+  border-bottom-width: 1px;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-color: rgb(195, 195, 195);
+}
