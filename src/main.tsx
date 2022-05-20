@@ -24,9 +24,10 @@ function App() {
   const [signUpOpened, setSignUpOpened] = useState(false);
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState<object[]>([]);
+  const [user, setUser] = useState<object>([]);
 
   useEffect(() => {
-    axios.get('https://62683c703f45bffa8389d669.mockapi.io/catalog').then(res => {
+    axios.get("http://localhost:8085/product").then(res => {
       setProducts(res.data);
     })
     axios.get('https://62683c703f45bffa8389d669.mockapi.io/cart').then(res => {
@@ -39,22 +40,27 @@ function App() {
     setCartProducts(prev => [...prev, obj])
   };
 
-  const onRemoveProduct = (id: string) => {
+  const onRemoveProduct = (id: any) => {
     axios.delete(`https://62683c703f45bffa8389d669.mockapi.io/cart/${id}`);
     setCartProducts(prev => prev.filter(item => item.id !== id));
   }
 
   const onSignUp = () => {
     setSignUpOpened(true);
-    setSignInOpened(false)
+    setSignInOpened(false);
   };
+
+  const isSignUpCorrect = () => {
+    setSignUpOpened(false);
+    setSignInOpened(true);
+  }
 
   return (
     <div className="wrapper">
       {/* <Cart cartProducts={cartProducts} onClose={() => setCartOpened(false)} onRemove={onRemoveProduct} opened={cartOpened} /> */}
-      <SignIn onClose={() => setSignInOpened(false)} signInOpened={signInOpened} onSignUp={onSignUp} signUpOpened={signUpOpened} />
-      <SignUp onClose={() => setSignUpOpened(false)} signUpOpened={signUpOpened}></SignUp>
-      <Header onClickCart={() => setCartOpened(true)} onClickAcc={() => setSignInOpened(true)}></Header>
+      <SignIn onClose={() => setSignInOpened(false)} signInOpened={signInOpened} onSignUp={onSignUp} signUpOpened={signUpOpened} setUser={setUser} />
+      <SignUp onClose={() => setSignUpOpened(false)} signUpOpened={signUpOpened} isSignUpCorrect={isSignUpCorrect}></SignUp>
+      <Header onClickCart={() => setCartOpened(true)} onClickAcc={() => setSignInOpened(true)} user={user}></Header>
       <Routes>
         <Route path="" element={<Main />}></Route>
         <Route path="catalog" element={<Catalog products={products} onAddToCart={onAddToCart} />}></Route>
@@ -62,7 +68,7 @@ function App() {
         <Route path="aboutus" element={<Aboutus />}></Route>
         <Route path="cart" element={<Cart1 cartProducts={cartProducts} onRemove={onRemoveProduct} />}></Route>
       </Routes>
-    </div>
+    </div >
   );
 }
 

@@ -2,12 +2,12 @@ import { useState } from "react";
 import styles from "./CartItem.module.scss";
 
 function CartItem({ item, onRemove }) {
-  const [num, setNum] = useState(0);
+  const [num, setNum] = useState(1);
   const onPlus = () => {
     setNum(num + 1);
   };
   const onMinus = () => {
-    num ? setNum(num - 1) : "";
+    num - 1 ? setNum(num - 1) : "";
   };
   return (
     <div className={styles.cartItem}>

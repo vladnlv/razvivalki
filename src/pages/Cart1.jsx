@@ -22,7 +22,7 @@ function Cart1({ cartProducts, onRemove }) {
           ))}
         </div>
         <div className="cartTotalBlock d-flex justify-between">
-          <div className="d-flex">
+          <div className="d-flex align-center">
             <h3 className="mr-20">Итого:</h3>
             <h3>17 руб. </h3>
           </div>

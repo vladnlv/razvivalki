@@ -23,6 +23,7 @@ function Header(props) {
           </NavLink>
           <li onClick={props.onClickAcc} className="mr-30 cu-p">
             <img width={25} height={25} src="img/user.png" alt="Пользователь" />
+            <h4>{props.user.name ? props.user.name : ""}</h4>
           </li>
         </ul>
       </div>
